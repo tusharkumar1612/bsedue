@@ -32,25 +32,23 @@ export default function Header() {
       >
         {/* Top Bar */}
         <div className="hidden lg:block bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2">
-          <div className="container-main flex justify-between items-center text-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm">
             <div className="flex items-center gap-6">
-              <span className="flex items-center gap-2">
+              <a href="tel:+911800XXXXXXX" className="flex items-center gap-2 hover:text-white/80 transition-colors">
                 <Phone size={14} />
-                <a href="tel:+911800XXXXXXX" className="hover:underline">
-                  +91 1800-XXX-XXXX (Toll Free)
-                </a>
-              </span>
-              <span className="flex items-center gap-2">
+                <span>+91 1800-XXX-XXXX (Toll Free)</span>
+              </a>
+              <span className="flex items-center gap-2 cursor-pointer hover:text-white/80 transition-colors">
                 <MessageCircle size={14} />
                 <span>Chat with Counselor</span>
               </span>
             </div>
             <div className="flex items-center gap-4">
-              <Link href="/blog" className="hover:underline">
+              <Link href="/blog" className="hover:text-white/80 transition-colors">
                 Blog
               </Link>
-              <span className="text-white/50">|</span>
-              <Link href="/support" className="hover:underline">
+              <span className="text-white/40">|</span>
+              <Link href="/support" className="hover:text-white/80 transition-colors">
                 Support
               </Link>
             </div>
@@ -58,14 +56,16 @@ export default function Header() {
         </div>
 
         {/* Main Header */}
-        <div className="container-main">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
-            <Logo variant="full" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14 sm:h-16 lg:h-18">
+            {/* Logo - positioned on left */}
+            <div className="flex-shrink-0 -ml-2 sm:-ml-4 lg:-ml-6">
+              <Logo variant="full" />
+            </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
-              {megaMenuItems.map((item) => (
+            <nav className="hidden lg:flex items-center">
+              {megaMenuItems.map((item, index) => (
                 <div
                   key={item.label}
                   className="relative"
@@ -74,17 +74,17 @@ export default function Header() {
                 >
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
                       activeMenu === item.label
                         ? "text-indigo-600 bg-indigo-50"
                         : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50"
                     }`}
                   >
-                    {item.label}
+                    <span className="whitespace-nowrap">{item.label}</span>
                     {item.sections.length > 0 && (
                       <ChevronDown
-                        size={16}
-                        className={`transition-transform ${
+                        size={14}
+                        className={`transition-transform flex-shrink-0 ${
                           activeMenu === item.label ? "rotate-180" : ""
                         }`}
                       />
@@ -102,22 +102,23 @@ export default function Header() {
             </nav>
 
             {/* Right Side CTA */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <Link
                 href="/support"
-                className="hidden md:flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 transition-colors"
+                className="hidden md:flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 transition-colors"
               >
-                <Phone size={18} />
+                <Phone size={16} />
                 <span className="hidden xl:inline">Get Guidance</span>
               </Link>
               <Link
                 href="/certifications"
-                className="btn-primary text-sm hidden sm:inline-flex items-center gap-2"
+                className="btn-primary text-xs sm:text-sm py-2 px-3 sm:px-4 inline-flex items-center gap-1 sm:gap-2"
               >
                 <span>Enroll Now</span>
                 <motion.span
-                  animate={{ x: [0, 4, 0] }}
+                  animate={{ x: [0, 3, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
+                  className="hidden sm:inline"
                 >
                   →
                 </motion.span>
@@ -125,11 +126,11 @@ export default function Header() {
 
               {/* Mobile Menu Button */}
               <button
-                className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+                className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle menu"
               >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
             </div>
           </div>
@@ -140,9 +141,9 @@ export default function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="fixed inset-0 z-40 lg:hidden"
           >
             {/* Backdrop */}
@@ -160,22 +161,22 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 bottom-0 w-[80%] max-w-sm bg-white shadow-2xl"
+              className="absolute right-0 top-0 bottom-0 w-[85%] max-w-sm bg-white shadow-2xl overflow-hidden"
             >
               <div className="flex flex-col h-full">
                 {/* Mobile Menu Header */}
-                <div className="flex items-center justify-between p-4 border-b">
-                  <span className="text-lg font-bold text-gray-900">Menu</span>
+                <div className="flex items-center justify-between p-4 border-b bg-gray-50">
+                  <Logo variant="compact" />
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 rounded-lg hover:bg-gray-100"
+                    className="p-2 rounded-lg hover:bg-gray-200 transition-colors"
                   >
-                    <X size={24} />
+                    <X size={22} />
                   </button>
                 </div>
 
                 {/* Mobile Menu Links */}
-                <nav className="flex-1 overflow-y-auto p-4">
+                <nav className="flex-1 overflow-y-auto py-4">
                   {mobileNavItems.map((item, index) => (
                     <motion.div
                       key={item.label}
@@ -185,34 +186,37 @@ export default function Header() {
                     >
                       <Link
                         href={item.href}
-                        className="flex items-center justify-between py-3 px-4 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"
+                        className="flex items-center justify-between py-3 px-5 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 transition-colors"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         <span className="font-medium">{item.label}</span>
-                        <ChevronDown size={18} className="-rotate-90" />
+                        <ChevronDown size={18} className="-rotate-90 text-gray-400" />
                       </Link>
                     </motion.div>
                   ))}
                 </nav>
 
                 {/* Mobile Menu Footer */}
-                <div className="p-4 border-t space-y-3">
+                <div className="p-4 border-t bg-gray-50 space-y-3">
                   <Link
                     href="/certifications"
-                    className="btn-primary w-full text-center block"
+                    className="btn-primary w-full text-center block py-3"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Enroll Now
                   </Link>
-                  <div className="flex items-center justify-center gap-4 text-sm text-gray-600">
-                    <a href="tel:+911800XXXXXXX" className="flex items-center gap-1">
+                  <div className="flex items-center justify-center gap-6 text-sm text-gray-600">
+                    <a href="tel:+911800XXXXXXX" className="flex items-center gap-2 hover:text-indigo-600 transition-colors">
                       <Phone size={16} />
-                      Call
+                      <span>Call Us</span>
                     </a>
-                    <span className="text-gray-300">|</span>
-                    <Link href="/support" className="flex items-center gap-1">
+                    <Link 
+                      href="/support" 
+                      className="flex items-center gap-2 hover:text-indigo-600 transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
                       <MessageCircle size={16} />
-                      Chat
+                      <span>Chat</span>
                     </Link>
                   </div>
                 </div>
@@ -223,7 +227,7 @@ export default function Header() {
       </AnimatePresence>
 
       {/* Spacer for fixed header */}
-      <div className="h-16 lg:h-28" />
+      <div className="h-14 sm:h-16 lg:h-[104px]" />
     </>
   );
 }
