@@ -355,3 +355,4 @@ export function getFeaturedPersonalDev(limit = 6): PersonalDevCourse[] {
   return personalDevCourses.filter((course) => course.badge).slice(0, limit);
 }
 
+

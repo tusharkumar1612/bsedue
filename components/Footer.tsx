@@ -13,6 +13,7 @@ import {
   MapPin,
   ArrowRight,
 } from "lucide-react";
+import Logo from "./Logo";
 
 const footerLinks = {
   courses: {
@@ -109,17 +110,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">B</span>
-              </div>
-              <div>
-                <span className="text-xl font-bold text-white">
-                  BSEdu<span className="text-indigo-400">world</span>
-                </span>
-                <p className="text-xs text-gray-500">Learn. Grow. Succeed.</p>
-              </div>
-            </Link>
+            <div className="mb-6">
+              <Logo variant="full" />
+            </div>
             <p className="text-gray-400 mb-6 max-w-sm">
               Empowering learners worldwide with industry-recognized certifications
               and online degrees from top universities.

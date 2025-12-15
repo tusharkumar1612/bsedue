@@ -1,0 +1,22 @@
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Graduation Cap -->
+  <path d="M8 12L25 4L42 12L25 20L8 12Z" fill="#C65D21"/>
+  <path d="M38 14V24C38 24 32 28 25 28C18 28 12 24 12 24V14" stroke="#C65D21" stroke-width="2" fill="none"/>
+  <line x1="42" y1="12" x2="42" y2="26" stroke="#C65D21" stroke-width="2"/>
+  <circle cx="42" cy="27" r="2" fill="#C65D21"/>
+  
+  <!-- BS Text -->
+  <text x="8" y="45" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#C65D21">BS</text>
+  
+  <!-- Divider Line -->
+  <line x1="48" y1="22" x2="48" y2="48" stroke="#2B5F9E" stroke-width="1.5"/>
+  
+  <!-- Building Scholars Text -->
+  <text x="54" y="30" font-family="Arial, sans-serif" font-size="10" font-weight="500" fill="#2B5F9E">Building Scholars</text>
+  
+  <!-- eduworld Text -->
+  <text x="54" y="45" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+    <tspan fill="#C65D21">edu</tspan><tspan fill="#2B5F9E">world</tspan>
+  </text>
+</svg>
+

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Phone, MessageCircle } from "lucide-react";
 import MegaMenu from "./MegaMenu";
+import Logo from "./Logo";
 import { megaMenuItems, mobileNavItems } from "@/lib/navigation";
 
 export default function Header() {
@@ -60,19 +61,7 @@ export default function Header() {
         <div className="container-main">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">B</span>
-              </div>
-              <div className="hidden sm:block">
-                <span className="text-xl font-bold text-gray-900">
-                  BSEdu<span className="text-indigo-600">world</span>
-                </span>
-                <p className="text-[10px] text-gray-500 -mt-1">
-                  Learn. Grow. Succeed.
-                </p>
-              </div>
-            </Link>
+            <Logo variant="full" />
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
